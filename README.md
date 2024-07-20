@@ -58,7 +58,7 @@ Registrováni jsou následující uživatelé:
 
     Program zobrazí jednoduchý sloupcový graf, který bude reprezentovat četnost různých délek slov v textu. Například takto:
 
-# ...
+...
  7| * 1
  8| *********** 11
  9| *************** 15
@@ -67,7 +67,7 @@ Registrováni jsou následující uživatelé:
 
 Po spuštění by měl průběh vypadat následovně:
 
-$ python projekt1.py
+python projekt1.py
 username:bob
 password:123
 ----------------------------------------
@@ -99,7 +99,7 @@ LEN|  OCCURENCES  |NR.
 
 Pokud uživatel není registrovaný:
 
-$ python projekt1.py
+python projekt1.py
 username:marek
 password:123
 unregistered user, terminating the program..

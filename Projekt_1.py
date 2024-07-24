@@ -70,7 +70,7 @@ garpike and stingray are also present.'''
         
         for word in words:
             clean_word = word.strip(",.?!")
-            if clean_word.istitle() and clean_word.isalpha():
+            if clean_word.istitle():
                 titlecase_words.append(clean_word)         
             if clean_word.isupper() and clean_word.isalpha():
                 uppercase_words.append(clean_word)

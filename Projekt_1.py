@@ -93,10 +93,10 @@ garpike and stingray are also present.'''
     print("LEN|","OCCURENCES".center(30),"|NR.")
     print(separator)
     
-    length_of_words = [len(word.strip(",.?!") for word in words]
+    length_of_words = [len(word.strip(",.?!")) for word in words]
     presence = {}
     
-    for length in sorted_length_words:
+    for length in length_of_words:
         if length in presence:
             presence[length] += 1
         else: 

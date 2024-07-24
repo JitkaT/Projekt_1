@@ -58,54 +58,57 @@ garpike and stingray are also present.'''
     
     if not text_choice_for_user.isdigit():
         print("The value is not a number, program needs to finish")
-    elif int(text_choice_for_user) in range (1,4):
-        text_choice_nr = texts[int(text_choice_for_user) - 1]
-        words = text_choice_nr.split()
-        print (f"There are {len(words)} words in the selected text.")
-        
-        uppercase_words = list()
-        titlecase_words = list()
-        lowercase_words = list()
-        digit_words = list()
-        
-        for word in words:
-            clean_word = word.strip(",.?!")
-            if clean_word.istitle():
-                titlecase_words.append(clean_word)         
-            if clean_word.isupper() and clean_word.isalpha():
-                uppercase_words.append(clean_word)
-            if clean_word.islower() and clean_word.isalpha():
-                lowercase_words.append(clean_word)
-            if clean_word.isdigit():
-                digit_words.append(clean_word)
-                
-        sum_of_digit_words = sum(int(word) for word in digit_words)
-        
-        print (f"There are {len(titlecase_words)} titlecase words.")          
-        print (f"There are {len(uppercase_words)} uppercase words.")          
-        print(f"There are {len(lowercase_words)} lowercase words.")
-        print(f"There are {len(digit_words)} numeric strings.")
-        print(f"The sum of all the numbers {sum_of_digit_words}.")
     else:
-        print("It is not a number btw 1 and 3, the program needs to end.")
+        text_choice_for_user = int(text_choice_for_user)
+        if text_choice_for_user not in range(1,4):
+            print("It is not a number between 1 and 3, program needs to end.")
+        else:
+            text_choice_nr = texts[int(text_choice_for_user) - 1]
+            words = text_choice_nr.split()
+            clean_words = [word.strip(",.?!") for word in words]
+            print (f"There are {len(words)} words in the selected text.")
         
-    print(separator)
-    print("LEN|","OCCURENCES".center(30),"|NR.")
-    print(separator)
+            uppercase_words = list()
+            titlecase_words = list()
+            lowercase_words = list()
+            digit_words = list()
+        
+            for word in clean_words:
+                if word.istitle():
+                    titlecase_words.append(word)         
+                if word.isupper() and word.isalpha():
+                    uppercase_words.append(word)
+                if word.islower() and word.isalpha():
+                    lowercase_words.append(word)
+                if word.isdigit():
+                    digit_words.append(word)
+                
+            sum_of_digit_words = sum(int(word) for word in digit_words)
+        
+            print (f"There are {len(titlecase_words)} titlecase words.")          
+            print (f"There are {len(uppercase_words)} uppercase words.")          
+            print(f"There are {len(lowercase_words)} lowercase words.")
+            print(f"There are {len(digit_words)} numeric strings.")
+            print(f"The sum of all the numbers {sum_of_digit_words}.")
+        
+            print(separator)
+            print("LEN|","OCCURENCES".center(30),"|NR.")
+            print(separator)
     
-    length_of_words = [len(word.strip(",.?!")) for word in words]
-    presence = {}
+            length_of_words = [len(word.strip(",.?!")) for word in words]
+            presence = {}
     
-    for length in length_of_words:
-        if length in presence:
-            presence[length] += 1
-        else: 
-            presence[length] = 1
-    for length, value in sorted(presence.items()):
-        alignment_1 = str(length).rjust(2)
-        alignment_2 = "*" * value
-        alignment_3 = str(alignment_2).ljust(30)
-        print(alignment_1, "|", alignment_3, "|", value)
+            for length in length_of_words:
+                if length in presence:
+                    presence[length] += 1
+                else: 
+                    presence[length] = 1
+                    
+            for length, value in sorted(presence.items()):
+                alignment_1 = str(length).rjust(2)
+                alignment_2 = "*" * value
+                alignment_3 = str(alignment_2).ljust(30)
+                print(alignment_1, "|", alignment_3, "|", value)
 else:
     print("unregistered user, terminating the program..")
 

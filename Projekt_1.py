@@ -19,7 +19,7 @@ print(separator)
 registered_usernames = {"bob": "123", "ann": "pass123", "mike": "password123", "liz": "pass123"}
 
 #Login check:
-if user_name in registred_usernames and registred_usernames[user_name] == password:
+if user_name in registered_usernames and registered_usernames[user_name] == password:
     print(f"Welcome to the app {user_name}!\nWe have 3 texts to be analyzed.")
     print(separator)
 
